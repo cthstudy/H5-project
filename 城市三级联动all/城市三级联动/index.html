@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<title>jQuery手机省市区城市三级联动选择代码</title>
+
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/area.css">
+
+</head>
+<body>
+
+<div class="ui-form-item ui-border-b">
+	<label>单位地址</label>
+	<div class="ui-select">
+		<input id="expressArea" data-name="custUa" data-required="true" data-label="单位地址" placeholder="选择省市区" readonly style="padding-left:0;">
+	</div>
+	<div class="browser">
+
+		<!--选择地区弹层-->
+		<section id="areaLayer" class="express-area-box">
+			<header>
+				<h3>选择省市区</h3>
+				<div class="selet-area-wrap">
+					<p><span class="one"></span></p>
+					<p><span class="two"></span></p>
+					<p><span class="three"></span></p>
+				</div>
+				<div class="hot-city">
+					<p>热门城市</p>
+					<ul>
+						<li onClick="selectPP(0,1)">北京</li>
+						<li onClick="selectPP(10,1)">上海</li>
+						<li onClick="quickselectC(18,0)">广州</li>
+						<li onClick="quickselectC(18,1)">深圳</li>
+						<li onClick="quickselectC(12,0)">杭州</li>
+						<li onClick="quickselectC(11,0)">南京</li>
+						<li onClick="quickselectC(11,4)">苏州</li>
+						<li onClick="selectPP(1,1)">天津</li>
+						<li onClick="quickselectC(16,0)">武汉</li>
+						<li onClick="quickselectC(17,0)">长沙</li>
+						<li onClick="selectPP(21,1)">重庆</li>
+						<li onClick="quickselectC(22,0)">成都</li>
+					</ul>
+					<p>选择省份/地区</p>
+				</div>
+				<a id="backUp" class="back" href="javascript:void(0)" title="返回"></a>
+				<a id="closeArea" class="close" href="javascript:void(0)" title="关闭"></a>
+			</header>
+			<article id="areaBox">
+				<ul id="areaList" class="area-list"></ul>
+			</article>
+		</section>
+		<!--遮罩层-->
+		<div id="areaMask" class="mask"></div>
+	</div>
+</div>
+
+<div class="ui-form-item ui-border-b">
+	<label>居住地址</label>
+	<div class="ui-select">
+		<input id="expressArea1" data-name="custRa" data-required="true" data-label="居住地址" placeholder="选择省市区" readonly style="padding-left:0;">
+	</div>
+</div>
+
+<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/jquery.area.js" type="text/javascript" charset="utf-8"></script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+<p>来源：<a href="http://www.lanrenzhijia.com/" target="_blank">懒人</a></p>
+</div>
+</body>
+</html>

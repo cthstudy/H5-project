@@ -1,0 +1,335 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery仿京东会员注册页面表单验证代码</title>
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	a {
+		color: #666;
+		text-decoration: none;
+	}
+	body {
+		padding: 20px;
+		color: #666;
+	}
+	.fl{
+		float: left;
+	}
+	.fr {
+		float: right;
+	}
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+		border: 0;
+		text-align: center;
+		width: 937px;
+		margin: auto;
+	}
+	th, td {
+		border: 1px solid #CADEFF;
+	}
+	th {
+		background: #e2f2ff;
+		border-top: 3px solid #a7cbff;
+		height: 30px;
+	}
+	td {
+		padding: 10px;
+		color: #444;
+	}
+	tbody tr:hover {
+		background: RGB(238,246,255);
+	}
+	.checkbox {
+		width: 60px;
+	}
+
+	.name {
+		width: 130px;
+	}
+
+	.tel,.id {
+		width: 150px;
+		color: #666;
+		font-weight: bold;
+	}
+	.operation {
+		width: 80px;
+	}
+	.operation span:hover, a:hover {
+		cursor: pointer;
+		color: red;
+		text-decoration: underline;
+	}
+
+	.foot {
+		width: 935px;
+		margin:10px auto;
+		color: #666;
+		height: 48px;
+		border: 1px solid #c8c8c8;
+		background-color: #eaeaea;
+		background-image:linear-gradient(RGB(241,241,241),RGB(226,226,226));
+		position: relative;
+		z-index: 8;
+	}
+	.foot div, .foot a {
+		line-height: 48px;
+		height: 48px;
+	}
+	.foot .select-all {
+		width: 100px;
+		height: 48px;
+		line-height: 48px;
+		padding-left: 5px;
+		color: #666;
+	}
+	.foot .closing {
+		border-left: 1px solid #c8c8c8;
+		width: 100px;
+		text-align: center;
+		color: #000;
+		font-weight: bold;
+		background: RGB(238,238,238);
+		cursor: pointer;
+	}
+	.foot .total{
+		margin: 0 20px;
+		cursor: pointer;
+	}
+	.foot  #priceTotal, .foot #selectedTotal {
+		color: red;
+		font-family: "Microsoft Yahei";
+		font-weight: bold;
+	}
+	.foot .selected {
+		cursor: pointer;
+	}
+	.foot .selected .arrow {
+		position: relative;
+		top:-3px;
+		margin-left: 3px;
+	}
+	.foot .selected .down {
+		position: relative;
+		top:3px;
+		display: none;
+	}
+	.show .selected .down {
+		display: inline;
+	}
+	.show .selected .up {
+		display: none;
+	}
+	.foot .selected:hover .arrow {
+		color: red;
+	}
+	.foot .selected-view {
+		width: 935px;
+		border: 1px solid #c8c8c8;
+		position: absolute;
+		height: auto;
+		background: #ffffff;
+		z-index: 9;
+		bottom: 48px;
+		left: -1px;
+		display:none;
+	}
+	.show .selected-view {
+		display: block;
+	}
+	.foot .selected-view div{
+		height: auto;
+	}
+	.foot .selected-view .arrow {
+		font-size: 16px;
+		line-height: 100%;
+		color:#c8c8c8;
+		position: absolute;
+		right: 330px;
+		bottom: -9px;
+	}
+	.foot .selected-view .arrow span {
+		color: #ffffff;
+		position: absolute;
+		left: 0px;
+		bottom: 1px;
+	}
+
+</style>
+</head>
+<body><script src="/demos/googlegg.js"></script>
+<table id="cartTable">
+    <thead>
+    <tr>
+        <th><label><input class="check-all check" type="checkbox">&nbsp;全选</label></th>
+        <th>姓名</th>
+        <th>电话</th>
+        <th>学生ID</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody id="tbody">
+
+    </tbody>
+</table>
+<div class="foot" id="foot">
+    <label class="fl select-all"><input type="checkbox" class="check-all check">&nbsp;全选</label>
+    <a class="fl delete" id="deleteAll" href="javascript:;">删除</a>
+    <div class="fr closing"></div>
+    <div class="fr total">合计：<span id="priceTotal">0</span></div>
+</div>
+
+<script>
+    //获取localStorage的学生数据集合集合
+    var stuList = JSON.parse(localStorage.getItem('stuList'));
+    //容器
+    var tbody = document.getElementById('tbody');
+    //统计
+    var priceTotal = document.getElementById('priceTotal');
+    //全选按钮
+    var checkAll =  document.getElementsByClassName('check-all');
+    //全部删除
+    var deleteAll = document.getElementById('deleteAll');
+    //渲染学生
+    for(var i = 0;i<stuList.length;i++){
+
+        addStudent(stuList[i],i);
+
+    }
+    //全选按钮事件
+    for(i = 0;i<checkAll.length;i++){
+        checkAll[i].addEventListener('click',function(){
+                   checkAlls(this.checked);
+                   this.checked?priceTotal.innerHTML = stuList.length:priceTotal.innerHTML = 0;
+        },false);
+    }
+    //全部选择
+    function checkAlls(flag){
+
+        var checkList = document.getElementsByTagName('input');
+        for(var i = 0;i<checkList.length;i++){
+          checkList[i].checked = flag;
+        }
+
+
+
+    }
+
+
+  //添加学生
+    function addStudent(obj,index){
+        //创建行
+        var tr =  document.createElement('tr');
+        //第一列 勾选按钮
+        var td1 = document.createElement('td');
+            td1.className = 'checkbox';
+            td1.innerHTML = '<input class="check-one check" type="checkbox">';
+        //第二列 学生姓名
+        var td2 = document.createElement('td');
+            td2.className = 'name';
+            td2.innerHTML = obj.name;
+        //第三列 学生电话
+        var td3 = document.createElement('td');
+            td3.className = 'tel';
+            td3.innerHTML = obj.tel;
+        //第一列 学生Id
+        var td4 = document.createElement('td');
+            td4.className = 'id';
+            td4.innerHTML = obj.id;
+        //删除按钮
+        var td5 = document.createElement('td');
+            td5.className = 'operation';
+            td5.innerHTML = '<span class="delete">删除</span>';
+        //勾选按钮事件
+          td1.addEventListener('click',function(){
+
+
+              //所有的勾选按钮
+              if(this.checked){
+                  this.checked=false;
+              }else{
+                  this.checked=true;
+              }
+              //判断是否其它按钮都勾选了
+              var result = isChecked();
+              state(result.flag,result.index);
+
+          },false);
+        //删除按钮事件
+        td5.addEventListener('click',function(){
+            tbody.removeChild(tr);
+            stuList.splice(index,1);
+
+            //判断是否其它按钮都勾选了
+                var result = isChecked();
+               state(result.flag,result.index);
+
+        },false);
+
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
+        tr.appendChild(td4);
+        tr.appendChild(td5);
+        tbody.appendChild(tr);
+    }
+
+    //判断是否都全选了
+     function isChecked(){
+         var index = 0;
+         var flag = true;
+         var checkList = document.getElementsByTagName('input');
+             if(stuList.length==0) return {flag:false,index:index};
+             for(var i = 1;i<checkList.length-1;i++){
+                 if(!checkList[i].checked){
+                     flag = false;
+                 }else{
+                     index++;
+                 }
+             }
+         return {flag:flag,index:index};
+     }
+
+    //存储
+    window.onbeforeunload = function(){
+        localStorage.setItem('stuList',JSON.stringify(stuList));
+    }
+
+    //全部删除
+    deleteAll.addEventListener('click',function(){
+        var checkList = document.getElementsByClassName('check-one');
+        for(var i = 0;i<checkList.length;i++){
+            if(checkList[i].checked){
+                tbody.removeChild(checkList[i].parentElement.parentElement);
+                stuList.splice(i,1);
+                i--;
+            }
+        }
+
+        var result = isChecked();
+        state(result.flag,result.index);
+
+    },false);
+
+    //状态设置
+    function state(flag,number){
+        priceTotal.innerHTML=number;
+        checkAll[0].checked = flag;
+        checkAll[1].checked = flag;
+    }
+
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+<p>来源：<a href="http://www.lanrenzhijia.com/" target="_blank">懒人素材</a></p>
+</div>
+</body>
+</html>
+

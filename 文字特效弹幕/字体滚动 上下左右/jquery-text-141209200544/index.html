@@ -1,0 +1,254 @@
+<!doctype html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8"> 
+
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, target-densityDpi=(device-dpi)/2" />
+
+
+
+<title>文字滚动</title>
+
+<link href="css/index.css" rel="stylesheet" type="text/css">
+
+<script src="http://www.jq22.com/jquery/1.9.1/jquery.min.js"></script>
+
+
+
+</head>
+
+
+
+<body>
+
+
+
+
+
+
+
+<!-- -------------摇奖排行榜---------------  -->
+
+<div class="Top_Record">
+
+	<div class="record_Top"><p>摇奖排行榜</p></div>
+
+    <div class="topRec_List">
+
+  		<dl>
+
+        	<dd>编号</dd>
+
+        	<dd>姓名</dd>
+
+        	<dd>奖项</dd>
+
+        	<dd>时间</dd>
+
+        </dl>
+
+        <div class="maquee">
+
+            <ul>
+
+                <li>
+
+                    <div>1</div>
+
+                    <div>王**</div>
+
+                    <div>中了30元</div>
+
+                    <div>2014/12/30 14:20</div>
+
+                </li> 
+
+                <li>
+
+                    <div>2</div>
+
+                    <div>王**</div>
+
+                    <div>中了30元</div>
+
+                    <div>2014/12/30 14:20</div>
+
+                </li> 
+
+                <li>
+
+                    <div>3</div>
+
+                    <div>王**</div>
+
+                    <div>中了30元</div>
+
+                    <div>2014/12/30 14:20</div>
+
+                </li> 
+
+                <li>
+
+                    <div>4</div>
+
+                    <div>王**</div>
+
+                    <div>中了30元</div>
+
+                    <div>2014/12/30 14:20</div>
+
+                </li> 
+
+                <li>
+
+                    <div>5</div>
+
+                    <div>王**</div>
+
+                    <div>中了30元</div>
+
+                    <div>2014/12/30 14:20</div>
+
+                </li> 
+
+                <li>
+
+                    <div>6</div>
+
+                    <div>王**</div>
+
+                    <div>中了30元</div>
+
+                    <div>2014/12/30 14:20</div>
+
+                </li> 
+
+                <li>
+
+                    <div>7</div>
+
+                    <div>王**</div>
+
+                    <div>中了30元</div>
+
+                    <div>2014/12/30 14:20</div>
+
+                </li> 
+
+                <li>
+
+                    <div>8</div>
+
+                    <div>王**</div>
+
+                    <div>中了30元</div>
+
+                    <div>2014/12/30 14:20</div>
+
+                </li> 
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div> 
+
+
+
+
+
+<div class="apple">
+
+	<ul>
+
+		<li><a href="#" target="_blank">你是我的小丫小苹果 </a></li>  
+
+        <li><a href="#" target="_blank">怎么爱你都不嫌多</a></li> 
+
+        <li><a href="#" target="_blank">红红的小脸儿温暖我的心窝 </a></li>  
+
+        <li><a href="#" target="_blank">点亮我生命的火 火火火火</a></li> 
+
+        <li><a href="#" target="_blank">你是我的小丫小苹果 </a></li>  
+
+        <li><a href="#" target="_blank">就像天边最美的云朵</a></li>  
+
+        <li><a href="#" target="_blank">春天又来到了花开满山坡 </a></li>  
+
+        <li><a href="#" target="_blank">种下希望就会收获</a></li> 
+
+    </ul> 
+
+</div>
+
+
+
+
+
+<div class="aa">
+
+	<marquee direction="left">
+
+求赞求评论求好评球动力啊~~~  抽空整理需要很大的耐心的= =  让我继续有无偿奉献(免jq币下载)的动力→_→
+
+</marquee>
+
+</div>
+
+
+
+<script type="text/javascript"> 
+
+	  function autoScroll(obj){  
+
+			$(obj).find("ul").animate({  
+
+				marginTop : "-39px"  
+
+			},500,function(){  
+
+				$(this).css({marginTop : "0px"}).find("li:first").appendTo(this);  
+
+			})  
+
+		}  
+
+		$(function(){  
+
+			setInterval('autoScroll(".maquee")',3000);
+
+			setInterval('autoScroll(".apple")',2000);
+
+			  
+
+		}) 
+
+		
+
+</script> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
+

@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>jQuery获取高德API城市划分数据代码</title>
+
+<link rel="stylesheet" type="text/css" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.css">
+
+<script src="js/jquery.min.js"></script>
+<script src="js/districtCodeTool.js"></script>
+
+</head>
+<body><script src="/demos/googlegg.js"></script>
+
+<span id="tool_val" style="color:red" ></span>
+<hr>
+<span id="tool2_val" style="color:green" ></span>
+
+<script>
+var tool = new DistrictCodeTool();//创建后默认隐藏的,可在districtCodeTool.js中更改
+tool.show("300px","20px"); //show 可传入距离顶部 距离左侧的距离
+tool.clickSelect(function(data){ //点击确定选择后的事件,data返回选中的地区数据
+	$("#tool_val").html("Tool的数据<br>名称:"+data.name+" / 行政区划代码:"+data.adcode+"<br>地区边界:<textarea>"+data.boundaries+"</textarea>");
+});
+
+var tool2 = new DistrictCodeTool("300px","300px",function(data){ //也可传入显示位置和事件
+	$("#tool2_val").html("Tool2的数据<br>名称:"+data.name+" / 行政区划代码:"+data.adcode+"<br>地区边界:<textarea>"+data.boundaries+"</textarea>");
+});
+tool2.show();
+/***
+工具可拖拽
+*/
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Opera、傲游、搜狗、世界之窗. 不支持Safari、IE8及以下浏览器。</p>
+<p>来源：<a href="http://www.lanrenzhijia.com/" target="_blank">懒人</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title></title>
+
+<!--插件基本框架-->
+<link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/Swiper/4.5.0/css/swiper.min.css" />
+
+<!--页面布局样式-->
+<link rel="stylesheet" type="text/css" href="statics/css/style.css" />
+
+</head>
+
+<body>
+
+
+<div class="swiper-container-solution">
+	<div class="selected-solution">
+		<div>
+			<div class="swiper-container">
+			
+				<div class="solution-cardlist swiper-wrapper">
+					<div class="col-sm-4 swiper-slide">
+						<div class="solution-card">
+							<img src="statics/images/a1.png" width="100%">
+							<h3>快速获取文档元素</h3>
+							<p>jQuery的选择机制构建于Css的选择器，它提供了快速查询DOM文档中元素的能力，而且大大强化了JavaScript中获取页面元素的方式。</p>
+							<span><a  href="#"><span class="arrow-more">了解详情</span><span class="arrow-f"></span></a>
+							</a>
+							</span>
+						</div>
+					</div>
+					<div class="col-sm-4 swiper-slide">
+						<div class="solution-card">
+							<img src="statics/images/a2.png" width="100%">
+							<h3>提供漂亮的页面动态效果</h3>
+							<p>jQuery中内置了一系列的动画效果，可以开发出非常漂亮的网页，许多网站都使用jQuery的内置的效果</p>
+							<span><a  href="#"><span class="arrow-more">了解详情</span><span class="arrow-f"></span></a>
+							</a>
+							</span>
+						</div>
+					</div>
+					<div class="col-sm-4 swiper-slide">
+						<div class="solution-card">
+							<img src="statics/images/a3.png" width="100%">
+							<h3>创建AJAX无刷新网页</h3>
+							<p>AJAX是异步的JavaScript和ML的简称，可以开发出非常灵敏无刷新的网页，特别是开发服务器端网页时</p>
+							<span><a  href="#"><span class="arrow-more">了解详情</span><span class="arrow-f"></span></a>
+							</span>
+						</div>
+					</div>
+					<div class="col-sm-4 swiper-slide">
+						<div class="solution-card">
+							<img src="statics/images/a4.png" width="100%">
+							<h3>增强的事件处理</h3>
+							<p>jQuery提供了各种页面事件，它可以避免程序员在HTML中添加太事件处理代码</p>
+							<span><a  href="#"><span class="arrow-more">了解详情</span><span class="arrow-f"></span></a>
+							</span>
+						</div>
+					</div>
+					<div class="col-sm-4 swiper-slide">
+						<div class="solution-card">
+							<img src="statics/images/a5.png" width="100%">
+							<h3>提供对JavaScript语言的增强</h3>
+							<p>jQuery提供了对基本JavaScript结构的增强，比如元素迭代和数组处理等操作。</p>
+							<span><a  href="#"><span class="arrow-more">了解详情</span><span class="arrow-f"></span></a>
+							</span>
+						</div>
+					</div>
+					<div class="col-sm-4 swiper-slide">
+						<div class="solution-card">
+							<img src="statics/images/a6.png" width="100%">
+							<h3>更改网页内容</h3>
+							<p>jQuery可以修改网页中的内容，比如更改网页的文本、插入或者翻转网页图像</p>
+							<span><a  href="#"><span class="arrow-more">了解详情</span><span class="arrow-f"></span></a>
+							</span>
+						</div>
+					</div>
+					<div class="col-sm-4 swiper-slide">
+						<div class="solution-card">
+							<img src="statics/images/a3.png" width="100%">
+							<h3>提供对JavaScript语言的增强</h3>
+							<p>jQuery提供了对基本JavaScript结构的增强，比如元素迭代和数组处理等操作。</p>
+							<span><a  href="#"><span class="arrow-more">了解详情</span><span class="arrow-f"></span></a>
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-pagination solution-pagination"></div>
+			</div>
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+		</div>
+	</div>
+</div>
+
+<script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script src="https://cdn.bootcss.com/Swiper/4.5.0/js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function() {
+		new Swiper(".swiper-container", {
+		
+			//默认功能属性
+			speed: 250,
+			slidesPerView: 3,
+			spaceBetween: 0,
+			slidesPerGroup: 3,
+			loop: true,
+			autoplay: true,
+			
+			//分页索引
+			pagination: {
+				el: ".swiper-pagination",
+				clickable: true
+			},
+			
+			//分页按钮
+			navigation: {
+				nextEl: ".swiper-button-next",
+				prevEl: ".swiper-button-prev"
+			}
+
+		});
+	})
+</script>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>抖音、点名表-jq22.com</title>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<style>
+body {
+	background:#000;
+}
+#btn {
+	position:absolute;
+	top:50px;
+	left:40%;
+	font-size:80px;
+	color:#f00;
+	cursor:pointer;
+}
+#con {
+	width:100%;
+	height:600px;
+	line-height:600px;
+	font-size:120px;
+	color:red;
+	text-align:center;
+}
+</style>
+</head>
+<body>
+<button id="btn">start</button>
+<div id="con">开始</div>
+
+<script>
+var btn = document.getElementById('btn');
+var con = document.getElementById('con');
+var arr = [
+    '张馨丹', '李青龙', '郭磊', '张晨', '王耀星', '王丽欢', '冯伟光', '张鑫磊', '王衡', '武?', '霍鑫星', '王潇', '梁晨宁', '韩钧宇', '周浩', '张庆庆', '李帅', '张玉辉', '高蕊慧', '董钰钿', '索夏雨', '唐争强', '刘繁星', '李静妍', '张艳红', '高学光', '王鑫', '韩舒畅', '赵财进', '王宁宁', '顾倩', '李鹏', '王荐', '尹晓雄', '王福森', '石浩琦', "郜仲华", "刘馥泰"
+];
+var timer = null;
+var len = arr.length;
+var flag = 0;
+//添点击事件
+btn.onclick = click;
+
+function click() {
+    if (flag == 0) {
+        btn.innerHTML = 'stop';
+        flag = 1;
+        timer = setInterval(function() {
+            var x = Math.floor(Math.random() * len); //0-38
+            con.innerHTML = arr[x];
+        }, 20);
+    } else {
+        flag = 0;
+        btn.innerHTML = 'start';
+        clearInterval(timer);
+    }
+}
+document.onkeydown = function(evt) {
+    var event = evt || window.event;
+    var eCode = event.keyCode || evetn.which;
+    if (eCode == 13 || 32) {
+        click();
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>jQuery响应式带进度步骤向导布局代码</title>
+
+<link rel="stylesheet" type="text/css" href="css/normalize.css" /><!--CSS RESET-->
+<link rel="stylesheet" type="text/css" href="css/demo.css"><!--演示页面样式，使用时可以不引用-->
+<link href="assets/css/main.css" rel="stylesheet"><!--可无视-->
+<link href="dist/css/jquery.wizzy.css" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="wrapper">
+	<div class="info">
+		<h2>Wizzy<span>0.5.2</span></h3>
+	</div>
+
+	<!-- Start Wizzy -->
+	<div class="wz-wrapper wizzy">
+		<div class="wz-inner">
+			<div class="wz-header">
+				<nav>
+					<a href="#">基本</a>
+					<a href="#">正常</a>
+					<a href="#">高级</a>
+					<a href="#">完成</a>
+				</nav>
+			</div>
+			<div class="wz-body">
+				<div class="wz-step">
+					<p>内容一</p>
+				</div>
+				<div class="wz-step">
+					<p>内容二</p>
+				</div>
+				<div class="wz-step">
+					<p>一个美妙的宁静占据了我的整个灵魂，就像春天的那些甜蜜的早晨，我全心全意地享受着。我独自一人，感受到这个地方存在的魅力，这是为我灵魂的幸福而创造的。我很高兴，我亲爱的朋友，如此专注于宁静的存在的微妙感觉，我忽略了我的才能。</p>
+				</div>
+				<div class="wz-step">
+					<p>一天早晨，当Gregor Samsa从噩梦中醒来时，他发现自己在床上变成了一个可怕的害虫。他躺在盔甲上，像往后一样，如果他稍微抬起头，他可以看到棕色的腹部，略微圆拱，被拱门分成硬的部分。床上用品几乎盖不住它，似乎随时都可以滑下来。</p>
+				</div>
+			</div>
+			<div class="wz-navigator"></div>
+		</div>
+	</div>
+	<!-- End Wizzy -->
+	
+	
+</div>
+
+<script src="http://www.jq22.com/jquery/jquery-1.9.1.js"></script>
+<script src="dist/js/jquery.wizzy.js"></script>
+
+<script>
+	$(".wizzy").wizzy();
+</script>
+</body>
+</html>

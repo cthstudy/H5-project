@@ -1,0 +1,59 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>输入数字每三位加逗号-jq22.com</title>
+<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+<style>
+</style>
+</head>
+<body>
+<input type="text" id="dollar">
+
+<script>
+$(function() {
+    $('#dollar').on('keyup', function() {
+        var a = $('#dollar').val();
+
+        var b = TripartiteMethod(a);
+        $(this).val(b);
+    })
+
+    function TripartiteMethod(num) {
+
+        var type = true;
+        var value = '';
+        num = num.replace(/,/g, "");
+
+        if (num.indexOf(".") < 0) {
+            var t1 = num.toString().split('');
+
+        } else {
+            type = false;
+            var arr = num.toString().split('.');
+            var t1 = arr[0].toString().split('');
+            var t2 = arr[1].toString();
+        }
+
+        var result = [],
+            counter = 0;
+        for (var i = t1.length - 1; i >= 0; i--) {
+            counter++;
+            result.unshift(t1[i]);
+            if ((counter % 3) == 0 && i != 0) {
+                result.unshift(',');
+            }
+        }
+
+        if (type === true) {
+            value = result.join('');
+        } else {
+            value = result.join('') + '.' + t2;
+        }
+        return value;
+    }
+})
+</script>
+
+</body>
+</html>

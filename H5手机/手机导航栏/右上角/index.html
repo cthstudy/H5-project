@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>jQuery+html5手机导航菜单代码 - jQuery插件库</title>
+
+<!--可无视-->
+<link href="css/global.css" rel="stylesheet">
+
+<!--必要样式-->
+<link type="text/css" href="css/style.css" rel="stylesheet">
+<link href="css/component.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/modernizr.custom.js"></script>
+<script type="text/javascript" src="js/jquery.dlmenu.js"></script>
+
+</head>
+<body>
+
+<header class="header">
+	<a href="http://www.jq22.com/" class="logo"><img src="images/logo.png"></a>
+	<a href="http://www.jq22.com/" class="search"><span>目的地搜索</span></a>
+	<a href="http://www.jq22.com/" class="user-icon"><span>用户中心</span></a>
+	<div id="dl-menu" class="dl-menuwrapper">
+		<button id="dl-menu-button">Open Menu</button>
+		<ul class="dl-menu">
+			<li><a href="http://www.jq22.com/">首页</a></li>
+			<li><a href="http://www.jq22.com/">台湾游</a></li>
+			<li><a href="http://www.jq22.com/">出境游</a></li>
+			<li><a href="http://www.jq22.com/">国内游</a></li>
+			<li><a href="http://www.jq22.com/">周边游</a></li>
+			<li>
+				<a href="Line">自由行</a>
+				<ul class="dl-submenu">
+					<li class="dl-back"><a href="#">返回上一级</a></li>
+					<li><a href="http://www.jq22.com/">线路</a></li>
+					<li><a href="http://www.jq22.com/">签证</a></li>
+					<li><a href="http://www.jq22.com/">门票</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</header>
+
+<script type="text/javascript">
+$(function(){
+	$( '#dl-menu' ).dlmenu();
+});
+</script>
+</body>
+</html>

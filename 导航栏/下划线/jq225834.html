@@ -1,0 +1,86 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery导航下划线滑动-jq22.com</title>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<style>
+* {
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+ul {
+	width:800px;
+	margin:0 auto;
+	position:relative;
+	overflow:hidden;
+}
+li {
+	float:left;
+	line-height:48px;
+	margin:0 30px 0 0;
+	cursor:pointer;
+}
+li:hover,.active {
+	color:#ff701d;
+}
+.line {
+	display:block;
+	position:absolute;
+	border:0;
+	height:5px;
+	background-color:#ff701d;
+	/*left:0;
+	*/
+    bottom:0;
+	pointer-events:none;
+	border-radius:5px;
+}
+</style>
+</head>
+<body>
+<div>
+    <ul>
+        <li class="">
+            关于我们
+        </li>
+        <li>
+            关于产品
+        </li>
+        <li class="active">
+            加入我们
+        </li>
+        <li>
+            联系我们
+        </li>
+        <div class="line"></div>
+    </ul>
+</div>
+
+<script>
+$(function() {
+    $(".line").css({
+        left: $('.active').position().left,
+        width: $(".active").width()
+    })
+    var left = $(".active").position().left
+    $("ul li").hover(function() {
+        $line_w = $(this).width()
+        $(".line").animate({
+            left: $(this).position().left,
+            width: $line_w
+        }, 300)
+    }, function() {
+        $(".line").stop(true).animate({
+            left: $('.active').position().left
+        });
+    })
+})
+$("ul li").click(function() {
+    $(this).addClass("active").siblings().removeClass("active")
+})
+</script>
+
+</body>
+</html>

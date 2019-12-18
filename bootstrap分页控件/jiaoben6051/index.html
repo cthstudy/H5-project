@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"> 
+<title>jQuery Bootstrap分页插件 - 站长素材</title>
+
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+
+<script type="text/javascript" src="js/jquery.min.js" ></script>
+<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+<script type="text/javascript" src="js/paging.js" ></script>
+<script type="text/javascript">
+$(function(){
+	var a={color:'red',sex:'black',border:'1px solid #ddd'};
+
+	var b={background:'black'};
+
+	$(".pagination").Paging({
+		classStyle:a,//a标签样式的对象,也可以不定义使用默认值
+		backClass:b,//选中的页数的背景，也可以不定义使用默认值
+		isFirst:true,   //首页按钮是否显示
+		isPre:true,     //下一页按钮是否显示
+		showRecordNum:10, // 一页列表数量
+		totalNum:450,   // 总列表数量
+		showNum:function(data1,data2){
+			alert(data1+","+data2);
+		}
+	});
+
+});
+</script>
+
+</head>
+<body>
+<center>
+<ul class="pagination"></ul>
+</center>
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+<p>来源：<a href="http://sc.chinaz.com/" target="_blank">站长素材</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+@charset "utf-8";
+
+body,ul,li{
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+img {
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+#zzsc {
+	height: 459px;
+	width: 992px;
+	margin-right: auto;
+	margin-left: auto;
+	position: relative;
+	background-color: #CCCCCC;
+	margin-top: 50px;
+}
+#zzsc .pre{
+	background-image: url(../images/nav.png);
+	background-repeat: no-repeat;
+	background-position: -50px top;
+	display: block;
+	height: 47px;
+	width: 25px;
+	cursor:pointer;
+	position: absolute;
+	left: -120px;
+	top: 182px;
+}
+#zzsc a.pre:hover{
+	background-position: -75px top;
+	}
+#zzsc .next{
+	background-image: url(../images/nav.png);
+	background-repeat: no-repeat;
+	background-position: left top;
+	display: block;
+	height: 47px;
+	width: 25px;
+	cursor:pointer;
+	top: 182px;
+	right: -120px;
+	position: absolute;
+	}
+#zzsc a.next:hover{
+	background-position: -25px top;
+	}
+#zzsc #wai_box {
+	height: 459px;
+	width: 992px;
+	overflow: hidden;
+	position: relative;
+}
+#zzsc #wai_box .zzsc_box .title {
+	font-family: "微软雅黑";
+	font-size: 14px;
+	line-height: 30px;
+	color: #FFFFFF;
+	background:rgba(000, 000, 000, 0.5);
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr=#6B000000,endColorstr=#6B000000); 
+	display: none;
+	height: 30px;
+	position: absolute;
+	bottom: 0px;
+	z-index: 30;
+	width:248px;
+	text-indent: 1em;
+	left: 0px;	
+}
+#zzsc .zzsc_box{
+	width: 2976px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+#zzsc .zzsc_box a.img:hover{
+	-moz-opacity:0.9;
+	-khtml-opacity:0.9;
+	Opacity:0.9;
+	Filter:alpha(opacity=90);
+	outline:none;
+}
+#zzsc .zzsc_box .img{
+	display: block;
+}
+#zzsc .zzsc_box ul {
+	float: left;
+	display: block;
+	height: 459px;
+	width: 992px;
+}
+#zzsc .zzsc_box li {
+	float: left;
+	font-size: 0px;
+	line-height: 0px;
+	position: relative;
+}
+#zzsc .nav {
+	height: 10px;
+	margin-top: 20px;
+	width:231px;
+	margin-right: auto;
+	margin-left: auto;
+}
+#zzsc .nav a {
+	background:rgba(100, 100, 100, 0.7);
+	display: block;
+	float: left;
+	height: 10px;
+	width: 75px;
+	font-size: 0px;
+	line-height: 0px;
+	margin-right: 2px;
+	cursor:pointer;
+}
+#zzsc .nav a:hover{
+	background-color: #F9B766;
+}
+#zzsc .nav .now{
+	background-color: #F9B766;
+}

@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>目标页面</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<!--<a class="mui-icon mui-icon-left-nav mui-pull-left" id="go_back"></a>
+			<a class="mui-icon mui-icon-forward mui-pull-right" id="go_forward"></a>-->
+			<a class="mui-icon mui-icon-left-nav mui-pull-left mui-action-back" id="close_page"></a>
+		</header>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function() {
+				var self = plus.webview.currentWebview();
+				var baiduWV = plus.webview.create("http://codepay.fateqq.com:52888/creat_order?id=213623&pay_id=1&price=0.01&type=1&token=sRo6LPYYl1mFaiBkikLvVHrGPhKFrGMP&param=null&notify_url=http://????/codepay.jsp&return_url=https://codepay.fateqq.com", "baidu", {
+					top: "44px",
+					bottom: 0
+				}); 
+				self.append(baiduWV);
+				/**
+				 * 重写mui.back()方法
+				 * http://dev.dcloud.net.cn/mui/window/#closewindow
+				 */
+				/**
+				 * 监听子窗口对象是否可后退
+				 * http://www.html5plus.org/doc/zh_cn/webview.html#plus.webview.WebviewObject.canBack
+				 */
+				document.getElementById("go_back").addEventListener("tap", function() {
+					baiduWV.canBack(function(event) {
+						var canBack = event.canBack;
+						if(canBack) {
+							baiduWV.back();
+						} else {
+							alert("到头了，不能后退了！");
+						}
+					});
+				});
+
+				// 右上角前进icon的事件
+				document.getElementById("go_forward").addEventListener("tap", function() {
+					/**
+					 * 监听子窗口对象是否可前进
+					 * http://www.html5plus.org/doc/zh_cn/webview.html#plus.webview.WebviewObject.canForward
+					 */
+					baiduWV.canForward(function(event) {
+						var canForward = event.canForward;
+						if(canForward) {
+							baiduWV.forward();
+						} else {
+							alert("不能前进！");
+						}
+					});
+				});
+			});
+		</script>
+	</body>
+
+</html>
